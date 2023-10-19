@@ -1,5 +1,6 @@
-let express = require('express');
+let express = require('express'); //將Express.js框架加載到express變數中
 let app = express();
+
 
 //#1
 //將字串輸出訊息到控制台
@@ -18,6 +19,15 @@ app.get('/',(req,res) => {
 */
 app.use("/public", express.static(__dirname + "/public"))
 
+/*#7
+這個middleware的功能是將收到的請求的方法（req.method）、路徑（req.path）和客戶端 IP 地址（req.ip）輸出到控制台。
+*/
+app.use((req,res,next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next() 
+  //Remember to call next() when you are done, or your server will be stuck forever.
+})
+
 
 /*#3
 Express應用程式的路由設定。當應用程式接收到根目錄（"/"）的GET請求時，它會回傳伺服器上"/views/index.html"這個檔案的內容
@@ -28,7 +38,27 @@ app.get('/',(req,res) => {
 
 /*#5
 Express應用程式的路由設定。當應用程式接收到路徑為"/json"的GET請求時，它會回傳一個JSON格式的回應
-*/
+
 app.get('/json',(req,res) => {
   res.json({"message":"Hello json"})
+})
+*/
+  
+//#6
+app.get("/json",(req,res) => {
+  if (process.env["MESSAGE_STYLE"] == "uppercase"){
+    res.json({"message":"HELLO JSON"})
+  } else {
+  res.json({"message":"Hello json"})
+  }
+})
+
+/*#8
+網址後+/now會出現current time
+*/
+app.get("/now",(req,res,next) => {
+  req.time = new Date().toString();
+  next();
+}, (req,res) => {
+  res.json({"time": req.time})
 })
