@@ -1,6 +1,7 @@
 let express = require('express'); //將Express.js框架加載到express變數中
 let app = express();
 
+let bodyParser = require("body-parser") //#11
 
 //#1
 //將字串輸出訊息到控制台
@@ -18,6 +19,8 @@ app.get('/',(req,res) => {
 當應用程式收到以 "/public" 開頭的HTTP請求時，Express框架會把該請求映射到伺服器上的目錄__dirname + "/public"，並且把相對應的靜態文件返回給客戶端
 */
 app.use("/public", express.static(__dirname + "/public"))
+//#11
+app.use(bodyParser.urlencoded({ extended: false})) 
 
 /*#7
 這個middleware的功能是將收到的請求的方法（req.method）、路徑（req.path）和客戶端 IP 地址（req.ip）輸出到控制台。
@@ -76,3 +79,13 @@ app.get("/:word/echo", (req,res) => {
 app.get("/name",(req,res) => {
   res.json({ name: req.query.first + " " + req.query.last })
 })
+
+//#11
+app.post("/name",(req,res) => {
+  res.json({ name: req.body.first + " " + req.body.last})
+})
+
+
+//10/19/2023 20:32 finished.
+
+ module.exports = app;
