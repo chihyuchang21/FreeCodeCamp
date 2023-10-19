@@ -62,3 +62,17 @@ app.get("/now",(req,res,next) => {
 }, (req,res) => {
   res.json({"time": req.time})
 })
+
+/*#9
+如果使用者訪問 your-app-rootpath/hello/echo，伺服器會回應 {"echo":"hello"}
+*/
+app.get("/:word/echo", (req,res) => {
+  res.json({echo: req.params.word})
+})
+
+/*#10
+如果使用者訪問 your-app-rootpath/name?first=John&last=Doe，伺服器會回應 {"name":"John Doe"}
+*/
+app.get("/name",(req,res) => {
+  res.json({ name: req.query.first + " " + req.query.last })
+})
