@@ -1,5 +1,5 @@
 {
-	"author": "ChihYu Chang",
+  "author": "ChihYu Chang",
   "name": "fcc-learn-npm-package-json",
   "description": "A project that does something awesome",
   "keywords": [ "freecodecamp", "test"],
