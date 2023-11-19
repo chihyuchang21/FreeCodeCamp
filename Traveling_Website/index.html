@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hants">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>首爾旅遊景點</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <img class="fixed-image" src="./images/v東大門.jpg" alt="fixed-image" />
+
+    <header>
+      <section class="logo">
+        <img src="./images/v網站Logo.svg" alt="日本旅遊網Logo" />
+        <h1>2023首爾旅遊景點</h1>
+      </section>
+      <nav>
+        <ul>
+          <li>
+            <a href="#"><i class="fa-solid fa-plane"></i> 首爾旅遊</a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-right-to-bracket"></i> 會員登入</a
+            >
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-book"></i> 預約行程</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-regular fa-address-book"></i> 聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="background-img">
+        <div class="filter"></div>
+        <h3>徜徉於多元的首爾旅遊景點。<br />安排一趟首爾旅遊行程，選擇琳瑯滿目。</h3>
+      </section>
+
+      <section class="info-circles">
+        <h3>景點列表</h3>
+        <div class="circles">
+          <div class="circle">
+            <img src="./images/v首爾塔.jpg" alt="首爾塔" />
+            <p>浪漫代名詞，美麗夜景</p>
+          </div>
+          <div class="circle">
+            <img src="./images/v明洞.jpg" alt="明洞" />
+            <p>著名商業購物區</p>
+          </div>
+          <div class="circle">
+            <img src="./images/v景福宮.jpg" alt="景福宮" />
+            <p>朝鮮王朝正宮</p>
+          </div>
+          <div class="circle">
+            <img src="./images/v北村韓屋村.jpg" alt="北村韓屋村" />
+            <p>韓國傳統經典建築村落</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="empty-container">
+        <h3>今天就開始規劃行程，找到最適合的方案。</h3>
+      </section>
+
+      <section class="google-map">
+        <h3>韓國地理位置</h3>
+        <p>
+          南韓地理位置處在亞洲大陸東北部韓半島（朝鮮半島）的南段。南韓三面環海，北部與朝鮮民主主義人民共和國接壤，西與中華人民共和國對海相望，
+          特別是冬天吹西北季風，在日本海側會下很多雪。
+          東部和東南部與日本隔海為鄰，是典型的半島國家。南韓是個多山的國家，與葡萄牙、匈牙利或愛爾蘭相似，國土面積的三分之二為山地。縱貫韓國東海岸的太白山脈是南韓地質的脊梁。
+        </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5300755.760441594!2d137.10323600911116!3d35.18148688884259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34674e0fd77f192f%3A0xf54275d47c665244!2sJapan!5e0!3m2!1sen!2sus!4v1664253921541!5m2!1sen!2sus"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+    </main>
+
+    <footer>
+      <section class="logo">
+        <img src="./images/old/網站Logo.svg" alt="logo" />
+        <h3>2023首爾旅遊景點</h3>
+      </section>
+      <section class="links">
+        <a href="#"><img src="./Icons/facebook.svg" alt="facebook" /></a>
+        <a href="#"><img src="./Icons/instagram.svg" alt="instagram" /></a>
+        <a href="#"><img src="./Icons/twitter.svg" alt="twitter" /></a>
+        <a href="#"><img src="./Icons/youtube.svg" alt="youtube" /></a>
+      </section>
+    </footer>
+
+    <script>
+      setInterval(() => {
+        let topBackground = document.querySelector("section.background-img");
+        if (
+          topBackground.style.backgroundImage == 'url("../images/v梨大.jpg")'
+        ) {
+          topBackground.style.backgroundImage = 'url("../images/v東大門.jpg")';
+        } else if (
+          topBackground.style.backgroundImage == 'url("../images/v景福宮.jpg")'
+        ) {
+          topBackground.style.backgroundImage = 'url("../images/v明洞.jpg")';
+        } else {
+          topBackground.style.backgroundImage = 'url("../images/v首爾塔.jpg")';
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>
